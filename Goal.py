@@ -20,7 +20,7 @@ class Goal:
         self.status = status
 
     def __str__(self):
-        return f'Goal: {self.name} \npriority: {self.priority} \ntasks: {self.listTasks()} \nstatus: {self.status}'
+        return f'Goal: {self.name}\nDeadline: {self.deadLine}\npriority: {self.priority}\nstatus: {self.status}\ntasks:\n{self.listTasks()}'
 
     def complete(self):
         self.status = 'Completed at ' + str(dt.datetime.now())

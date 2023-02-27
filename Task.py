@@ -2,6 +2,9 @@
 # Task.py
 # By Lo
 
+import datetime as dt
+
+
 class Task:
     'The Task object'
 
@@ -17,3 +20,6 @@ class Task:
 
     def __str__(self):
         return f'Name: {self.name} \nPriority: {self.priority} \nStatus: {self.status}'
+
+    def complete(self):
+        self.status = 'Completed at ' + str(dt.datetime.now())

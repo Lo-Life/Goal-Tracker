@@ -34,19 +34,14 @@ def createDB():
     cursor.execute(f'CREATE DATABASE %s', (gl.logIn['database']))
 
     # Adds tables to the database
-    createTaskTable = """
-    CREATE TABLE tasks (
-        id TEXT PRIMARY KEY,
-        name VARCHAR(255),
-        notes TEXT,
-        created DATETIME,
-        timeFrame VARCHAR(255),
-        deadline DATETIME
-        priority VARCHAR(255)
-        status VARCHAR(255)
-    )    
-    """
-    cursor.execute(createTaskTable)
+    cursor.execute(gl.createTasksTable)
+    cursor.execute(gl.createGoalsTable)
+    cursor.execute(gl.createGoalTasksTable)
+    cursor.execute(gl.createSprintsTable)
+    cursor.execute(gl.createSprintTasksTable)
+    cursor.execute(gl.createSprintToDoTable)
+    cursor.execute(gl.createSprintInProgressTable)
+    cursor.execute(gl.createSprintDoneTable)
 
 
 def addGoal():

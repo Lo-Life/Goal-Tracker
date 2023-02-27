@@ -6,16 +6,19 @@
 class Sprint:
     'The Sprint object'
 
-    def __init__(self, id, name, start, length, backlog, blocked, toDo, inProgress, done):
+    def __init__(self, id, name, start, length, tasks, toDo, inProgress, done):
         self.id = id
         self.name = name
         self.start = start
         self.length = length
-        self.backlog = backlog
-        self.blocked = blocked
+        self.tasks = tasks
         self.toDo = toDo
         self.inProgress = inProgress
         self.done = done
 
     def __str__(self):
-        return f'Sprint: {self.name} \n started: {self.start} \n length: {self.length}'
+        return f'Sprint: {self.name}\nStarted: {self.start}\nLength: {self.length}\nTasks:\n{self.listTasks()}'
+
+    def listTasks(self):
+        for task in self.tasks:
+            print(task + '\n')
