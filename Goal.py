@@ -18,6 +18,7 @@ class Goal:
         self.deadLine = deadline
         self.priority = priority
         self.status = status
+        self.newData = False
 
     def __str__(self):
         return f'Goal: {self.name}\nDeadline: {self.deadLine}\npriority: {self.priority}\nstatus: {self.status}\ntasks:\n{self.listTasks()}'

@@ -7,26 +7,6 @@ import uuid
 import globals as gl
 
 
-def checkForDB():
-    'Returns True if the goalTracker database exsists'
-    cnx = mysql.connector.connect(**gl.logIn)
-    cursor = cnx.cursor()
-    # Execute a query to check if the database exists
-    cursor.execute(
-        f'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = %s', (gl.logIn['database']))
-    result = cursor.fetchone()
-    if result:
-        if cnx.is_conected():
-            cursor.close()
-            cnx.close()
-        return True
-    else:
-        if cnx.is_conected():
-            cursor.close()
-            cnx.close()
-        return False
-
-
 def createDB():
     'Creates the goalTracker database'
     # Connect to server
@@ -50,14 +30,21 @@ def createDB():
         cnx.close()
 
 
-def addGoal():
-    'Adds a Goal to goals'
-    id = str(uuid.uuid4())
-
-
-def addTask():
-    'Adds a task to tasks'
-    id = str(uuid.uuid4())
+def checkForDB():
+    'Returns True if the goalTracker database exsists'
+    cnx = mysql.connector.connect(**gl.logIn)
+    cursor = cnx.cursor()
+    # Execute a query to check if the database exists
+    cursor.execute(
+        f'SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = %s', (gl.logIn['database']))
+    result = cursor.fetchone()
+    if result:
+        if cnx.is_conected():
+            cursor.close()
+            cnx.close()
+        return True
+    else:
+        createDB()
 
 
 def save():

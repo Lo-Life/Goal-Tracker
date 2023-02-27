@@ -15,6 +15,7 @@ class Sprint:
         self.toDo = toDo
         self.inProgress = inProgress
         self.done = done
+        self.newData = False
 
     def __str__(self):
         return f'Sprint: {self.name}\nStarted: {self.start}\nLength: {self.length}\nTasks:\n{self.listTasks()}'

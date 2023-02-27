@@ -86,6 +86,6 @@ createSprintDoneTable = """
     )
     """
 
-
+tasks = []
 goals = []
 sprints = []
