@@ -29,6 +29,7 @@ def checkForDB():
 
 def createDB():
     'Creates the goalTracker database'
+    # Connect to server
     cnx = mysql.connector.connect(**gl.logIn)
     cursor = cnx.cursor()
     cursor.execute(f'CREATE DATABASE %s', (gl.logIn['database']))
@@ -42,6 +43,11 @@ def createDB():
     cursor.execute(gl.createSprintToDoTable)
     cursor.execute(gl.createSprintInProgressTable)
     cursor.execute(gl.createSprintDoneTable)
+
+    # Close connection to database
+    if cnx.is_conected():
+        cursor.close()
+        cnx.close()
 
 
 def addGoal():

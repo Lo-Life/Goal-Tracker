@@ -23,6 +23,7 @@ createTasksTable = """
         status VARCHAR(255)
     )    
     """
+
 createGoalsTable = """
     CREATE TABLE goals (
         id TEXT PRIMARY KEY,
@@ -35,6 +36,7 @@ createGoalsTable = """
         status VARCHAR(255)
     )    
     """
+
 createGoalTasksTable = """
     CREATE TABLE goalTasks (
         goalID TEXT PRIMARY KEY,
