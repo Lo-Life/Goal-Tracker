@@ -9,6 +9,7 @@ class Sprint:
     def __init__(self, id, name, start, length, tasks, toDo, inProgress, done):
         self.id = id
         self.name = name
+        self.created = created
         self.start = start
         self.length = length
         self.tasks = tasks

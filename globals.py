@@ -49,6 +49,7 @@ createSprintsTable = """
     CREATE TABLE sprints (
         id TEXT PRIMARY KEY,
         name VARCHAR(255),
+        created DATETIME,
         start DATETIME,
         length VARCHAR(255)
     )
@@ -89,3 +90,4 @@ createSprintDoneTable = """
 tasks = []
 goals = []
 sprints = []
+data = [tasks, goals, sprints]
